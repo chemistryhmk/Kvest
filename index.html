@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Дело № 9: Криогенный шантаж</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0f17;--bar:#111722;--tx:#f1f5f9;--mu:#94a3b8;--ln:#334155;--cy:#00e5ff;--am:#fbbf24;--ok:#16a34a;--bad:#dc2626;--paper:#fff;--ink:#0f172a;--pmu:#475569;--grid:rgba(79,131,204,.16);
+--ev:#0d121c;--evs:#141b27;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#e6ecf2;--bar:#d5dee8;--tx:#0f172a;--mu:#475569;--ln:#a9b7c6}}
+:root[data-theme="light"]{--bg:#e6ecf2;--bar:#d5dee8;--tx:#0f172a;--mu:#475569;--ln:#a9b7c6}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--tx);font:16px/1.55 var(--sans)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bar);z-index:20}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--cy);outline-offset:2px}
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bar);border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:8px 16px}
+.hd small{display:block;font:500 11px var(--mono);color:var(--mu);letter-spacing:.04em}
+.tt{flex:1;min-width:220px}.tt b{font-size:18px}
+.tm span{font:500 30px/1 var(--mono);font-variant-numeric:tabular-nums}.tm.low span{color:var(--bad)}
+.b2{background:transparent;border:1px solid var(--ln);border-radius:4px;padding:7px 12px;font-size:14px}
+.b2:hover{border-color:var(--cy)}
+main{max-width:1240px;margin:0 auto;padding:16px}
+.ep{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+@media (max-width:860px){.ep{grid-template-columns:1fr}}
+.ev{background:var(--ev);color:#f8fafc;border:1px solid #222e42;border-radius:6px;padding:20px}
+.ev small,.ws small{font:500 12px var(--mono);letter-spacing:.04em;color:#94a3b8;display:block;margin-top:14px}
+.ev h2{margin:2px 0 6px;font-size:26px;line-height:1.2}
+.note{border-left:4px solid var(--am);background:var(--evs);padding:12px 16px;margin:6px 0;font-size:18px;font-style:italic}
+.lnk{border:1px solid var(--cy);color:var(--cy);border-radius:4px;padding:10px 14px;margin-top:14px;font-size:15px}
+.ws{background:var(--paper);color:var(--ink);border:1px solid #cbd5e1;border-radius:6px;padding:20px}
+.ws small{color:var(--pmu)}
+.pal{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.pal button{background:#f1f5f9;color:var(--ink);border:1px solid #cbd5e1;border-radius:4px;min-width:34px;padding:3px 8px;font:500 15px var(--mono)}
+textarea{width:100%;min-height:240px;resize:vertical;border:1px solid #94a3b8;border-radius:4px;padding:8px 10px 8px 34px;color:var(--ink);font:500 17px/26px var(--mono);background:#fff linear-gradient(90deg,transparent 26px,rgba(239,68,68,.45) 26px,rgba(239,68,68,.45) 27px,transparent 27px),repeating-linear-gradient(transparent 0 25px,var(--grid) 25px 26px);background-attachment:local}
+.fld{margin-top:14px}.fld label{display:block;font-weight:700;font-size:15px}
+.fld input{font:600 22px var(--mono);width:100%;max-width:300px;padding:7px 10px;border:2px solid #94a3b8;border-radius:4px;color:var(--ink);background:#fff}
+.fld input.ok{border-color:var(--ok);background:#ecfdf3}.fld input.bad{border-color:var(--bad);background:#fef2f2}
+.btn{background:#0284c7;color:#fff;border:0;border-radius:4px;padding:11px 20px;font-weight:700;margin-top:14px}
+.btn:disabled{opacity:.5;cursor:default}
+.msg{margin-top:12px;padding:10px 14px;border-radius:4px;font-weight:600;color:#fff}
+.msg.bad{background:var(--bad)}.msg.ok{background:var(--ok)}
+.shake{animation:sh .4s}@keyframes sh{25%{transform:translateX(-7px)}50%{transform:translateX(7px)}75%{transform:translateX(-4px)}}
+.big{max-width:820px;margin:0 auto}.big h1{font-size:34px;line-height:1.15;margin:4px 0 10px}
+.rules li{margin:8px 0}
+.ft{position:sticky;bottom:env(safe-area-inset-bottom,0px);background:var(--bar);border-top:1px solid var(--ln);display:flex;align-items:center;gap:12px;padding:8px 16px;z-index:10}
+.code{flex:1;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.sl{min-width:54px;text-align:center;border:1px solid var(--ln);border-radius:4px;padding:2px 8px;font:500 16px var(--mono)}
+.sl i{display:block;font:normal 10px var(--mono);color:var(--mu)}.sl.f{border-color:var(--ok);color:var(--ok)}
+.ft .b2:disabled{opacity:.4}
+.code .sl{cursor:pointer;background:transparent;color:var(--tx)}.code .sl.f{color:var(--ok)}.code .sl:hover{border-color:var(--cy)}.code .sl:disabled{opacity:.35;cursor:default}.code .sl:disabled:hover{border-color:var(--ln)}.code .sl.c{outline:2px solid var(--cy);outline-offset:1px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:30;display:grid;place-items:center;padding:16px}
+.ov>div{background:var(--paper);color:var(--ink);max-width:640px;max-height:90vh;overflow:auto;border-radius:6px;padding:20px;width:100%}
+.ov table{border-collapse:collapse;width:100%}.ov td{border-bottom:1px solid #e2e8f0;padding:6px 8px;vertical-align:top}
+.tsl{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.tsl .sl{font-size:26px;padding:8px 12px;min-width:90px}
+@media (prefers-reduced-motion:reduce){.shake{animation:none}}
+</style>
+</head>
+<body>
+<header class="hd">
+ <div class="tt"><small>ХИМИЯ 8 КЛАСС · ДЕТЕКТИВНЫЙ ПРАКТИКУМ</small><b>Дело № 9: Криогенный шантаж профессора Криоса</b></div>
+ <div class="tm" id="tmw"><small>ТАЙМЕР АТАКИ</small><span id="tm">60:00</span></div>
+ <button class="b2" id="bref">Таблица Ar</button><button class="b2" id="bt">Режим учителя</button>
+</header>
+<main id="main"></main>
+<footer class="ft"><button class="b2" id="prev">Назад</button><div class="code" id="code"></div><button class="b2" id="next">Вперёд</button></footer>
+<script>
+var E=[
+{t:"Тайна радиоактивной метки",
+ story:"На дверях сервера Криос оставил образчик неизвестного металла.",
+ note:"«Я взял нейтральный атом металла Me. В его ядре нейтронов на 4 больше, чем протонов. Атом отдал 2 электрона и превратился в катион Me²⁺, в котором суммарно содержится 38 частиц: протонов, нейтронов и электронов вместе. Найдите этот металл!»",
+ link:"Найденный металл Криос сжёг в атмосфере раскалённого азота.",
+ lab:"🔑 ЦИФРА КОДА № 1: порядковый номер металла",num:[12],
+ x:{lab:"📦 Найденное вещество-улика (название или символ)",a:["mg","магний","mg28","28mg"]},
+ key:"3Z + 2 = 38, Z = 12, магний, ²⁸Mg (16 нейтронов). Код 12."},
+{t:"Слепой взлом нитрида",
+ story:"Криос сжёг найденный изотоп в атмосфере азота и получил бинарный нитрид.",
+ note:"«В полученном нитриде массовая доля магния составляет 75 %, остальное — азот. Молекулярная масса неизвестна. Восстановите простейшую формулу MgₓNᵧ и найдите суммарное число атомов в одной формульной единице!»",
+ link:"Нитрид зафиксирован. В вентиляции обнаружен летучий растворитель с серой.",
+ lab:"🔑 ЦИФРА КОДА № 2: суммарное число атомов в формуле",num:[5],
+ x:{lab:"📦 Формула нитрида",a:["mg3n2"]},
+ key:"Магний здесь ²⁸Mg, Ar = 28. w(N) = 25 %; 75/28 : 25/14 = 3 : 2; Mg₃N₂, 5 атомов. Код 5."},
+{t:"Летучая жидкость",
+ story:"В вентиляции найден запечатанный растворитель: бинарное соединение серы с хлором.",
+ note:"«Серы в этом соединении 47,41 % по массе, остальное — хлор. Пары вещества тяжелее водорода в 67,5 раза. Выведите молекулярную формулу SₓClᵧ и укажите её относительную молекулярную массу!»",
+ link:"Серу из растворителя Криос перевёл в серную кислоту для следующего синтеза.",
+ lab:"🔑 ЦИФРА КОДА № 3: относительная молекулярная масса Mr",num:[135],
+ x:{lab:"📦 Формула вещества",a:["s2cl2"]},
+ key:"M = 67,5·2 = 135; m(S) = 64 г, 2 атома; m(Cl) = 71 г, 2 атома; S₂Cl₂. Код 135."},
+{t:"Скрытая вода соли магния",
+ story:"Магний и серная кислота дали сульфат магния, из раствора которого выросли кристаллы.",
+ note:"«Я взял 5,00 г кристаллогидрата MgSO₄·xH₂O и прокалил его до полного испарения воды. Масса сухой соли MgSO₄ составила 2,48 г. Определите x!»",
+ link:"В реакторе осталась безводная соль. Её количество вещества пригодится дальше. В вентиляции запущен газовый заслон.",
+ lab:"🔑 ЦИФРА КОДА № 4: число молекул воды x",num:[7],
+ x:{lab:"📦 Формула кристаллогидрата",a:["mgso47h2o"]},
+ key:"M(MgSO₄) = 28 + 32 + 64 = 124. m(H₂O) = 2,52 г; n(соли) = 2,48/124 = 0,02 моль; n(H₂O) = 0,14 моль; x = 7. Код 7."},
+{t:"Газовый заслон",
+ story:"Топливо в камере сгорания горело при недостатке воздуха, и в вентиляции появилась смесь угарного и углекислого газов.",
+ note:"«Смесь CO и CO₂ имеет массу 60 г и общее количество вещества 2 моль. Найдите массовую долю кислорода (Оксигена) в этой смеси, в процентах!»",
+ link:"Заслон пройден. Теперь соль из эпизода 4 нужно осадить.",
+ lab:"🔑 ЦИФРА КОДА № 5: массовая доля кислорода, %",num:[60],
+ key:"Система: a + b = 2, 28a + 44b = 60; b = 0,25, a = 1,75. m(O) = 36 г, 36/60 = 60 %. Или M(ср) = 30."},
+{t:"Осадок и избыток",
+ story:"Всю безводную соль из эпизода 4 Криос растворил в воде и добавил щёлочь.",
+ note:"«К раствору этой соли (её количество вещества вы нашли в эпизоде 4) я добавил 20 г 10 %-го раствора NaOH. Выпал белый осадок Mg(OH)₂. Найдите массу осадка в миллиграммах. Какое из исходных веществ осталось в растворе и сколько граммов его осталось?»",
+ link:"Осадок направлен в криогенный сенсор сервера.",
+ lab:"🔑 ЦИФРА КОДА № 6: масса осадка, мг",num:[1240],tol:.007,
+ x:{lab:"📦 Масса оставшегося исходного вещества, г",n:0.4},
+ key:"MgSO₄ + 2NaOH → Mg(OH)₂↓ + Na₂SO₄. n(NaOH) = 0,05 моль, нужно 0,04: избыток 0,01 моль = 0,4 г. Осадок 0,02 моль, M(Mg(OH)₂) = 62: 1,24 г = 1240 мг."},
+{t:"Нейтроны в осадке",
+ story:"Замок сервера требует микроструктурный параметр осадка.",
+ note:"«Весь магний, который я использовал, — это тот самый радиоактивный изотоп из эпизода 1. Кислород в моих реактивах только ¹⁶O, водород только ¹H. Сколько нейтронов содержится в осадке из эпизода 6? Запишите ответ как число, умноженное на 10²², округлив до целого!»",
+ link:"Все 7 улик собраны. Переходим к терминалу сервера.",
+ lab:"🔑 ЦИФРА КОДА № 7: число перед 10²²",num:[39,38],tol:.002,
+ key:"Нейтронов на формульную единицу: 16 + 2·8 + 0 = 32; 0,02·32 = 0,64 моль; ·6,02·10²³ = 3,85·10²³ = 38,5·10²² → 39 (38 при NA = 6·10²³)."}
+];
+var PAL=["₂","₃","₄","⁺","²","³","⁻","¹","·","→","↓","×","/","(",")","ω","Ar","Mr","≈","⁰"];
+var cur=0,solved=[],notes=[],sv=[],alarms=0,LEFT=3600,started=false,tid=null,fin=false;
+var $=function(i){return document.getElementById(i)};
+function fmt(s){s=Math.max(0,s);return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+function nf(s){var m={"₀":0,"₁":1,"₂":2,"₃":3,"₄":4,"₅":5,"₆":6,"₇":7,"₈":8,"₉":9,"⁰":0,"¹":1,"²":2,"³":3,"⁴":4,"⁵":5,"⁶":6,"⁷":7,"⁸":8,"⁹":9};
+ return s.toLowerCase().replace(/[₀-₉⁰¹²³⁴-⁹]/g,function(c){return m[c]}).replace(/[\s·*.•×\-–]/g,"")}
+function num(v){return parseFloat(String(v).replace(",",".").replace(/\s/g,""))}
+function ov(h){var o=document.createElement("div");o.className="ov";o.innerHTML="<div>"+h+'<p><button class="btn" id="cl">Закрыть</button></p></div>';document.body.appendChild(o);
+ $("cl").onclick=function(){o.remove()};o.onclick=function(e){if(e.target===o)o.remove()}}
+function legend(){return '<div class="ev big"><small>THE EVIDENCE ROOM · СЛАЙД 1</small><h1>Криогенный шантаж</h1><small>СРОЧНАЯ РАДИОГРАММА · ШЕФ БЮРО</small>'+
+ '<div class="note">«Детектив, срочный вызов! Полчаса назад безумный химик Профессор Криос заблокировал главный сервер Бюро и запустил 60-минутный таймер химической атаки. Он угрожает распылить в здании токсичный газ. Сервер защищён кодом из семи чисел. Нам предстоит распутать цепочку из 7 улик вокруг одного металла: от микромира атомов до уравнений реакций. Время пошло!»</div>'+
+ '<small>ПРАВИЛА РАССЛЕДОВАНИЯ</small><ol class="rules"><li>Слева улики и записки Криоса, справа твой блокнот. Решай там как на бумаге; кнопки над блокнотом вставляют индексы и стрелки.</li><li>В конце каждого эпизода введи число кода и, если просят, вещество-улику. Верный ответ открывает замок и записывает число в код сервера.</li><li>Подсказок нет. Рассуждай вслух: детектив обсуждает ход мысли с напарником.</li><li>Таблица Ar доступна в любой момент. Атомные массы округляй до целых (кроме Cl = 35,5).</li></ol>'+
+ (started?'<p>Расследование идёт. Нажми «Вперёд».</p>':'<button class="btn" id="go">Начать расследование</button>')+'</div>'}
+function episode(i){var e=E[i],d=solved[i]!=null;
+ return '<section class="ep"><div class="ev"><small>THE EVIDENCE ROOM · УЛИКА № '+(i+1)+'</small><h2>Эпизод '+(i+1)+'. «'+e.t+'»</h2><small>СЮЖЕТ ДЕЛА</small><div>'+e.story+'</div><small>ЗАПИСКА КРИОСА</small><div class="note">'+e.note+'</div>'+(d?'<div class="lnk">'+e.link+'</div>':'')+'</div>'+
+ '<div class="ws"><small style="margin-top:0">THE WORKSPACE · БЛОКНОТ РЕШЕНИЯ</small><div class="pal">'+PAL.map(function(p){return'<button type="button" data-p="'+p+'" aria-label="Вставить '+p+'">'+p+'</button>'}).join("")+'</div>'+
+ '<textarea id="nb" aria-label="Блокнот решения" placeholder="Решение пиши здесь"></textarea>'+
+ '<div class="fld"><label for="f1">'+e.lab+'</label><input id="f1" type="text" inputmode="decimal" autocomplete="off"'+(d?' disabled':'')+'></div>'+
+ (e.x?'<div class="fld"><label for="f2">'+e.x.lab+'</label><input id="f2" type="text" autocomplete="off"'+(d?' disabled':'')+'></div>':'')+
+ '<div id="res"></div>'+(d?'':'<button class="btn" id="chk">Проверить</button>')+'</div></section>'}
+function terminal(){var ok=solved.filter(function(x){return x!=null}).length==7;
+ return '<div class="ev big"><small>CRYOGENIC SECURITY TERMINAL · СЛАЙД 9</small><h1>Терминал сервера Бюро</h1><div>Статус сервера: '+(fin?'РАЗБЛОКИРОВАН':'ЗАБЛОКИРОВАН')+'</div><div class="tsl">'+
+ E.map(function(e,i){return'<div class="sl'+(solved[i]!=null?' f':'')+'"><i>№ '+(i+1)+'</i>'+(solved[i]!=null?solved[i]:'?')+'</div>'}).join("")+'</div>'+
+ (fin?'<div class="note">Шеф Бюро: «Блестящая работа, детектив! Сервер разблокирован, газ не распылён. Единая цепочка превращений магния раскрыта: от атома ²⁸Mg до осадка Mg(OH)₂.»</div><p>Итог: осталось времени '+fmt(LEFT)+', тревог '+alarms+'.</p><p><small>Теперь разбор: что было самым неожиданным? Как ты справилась с избытком, если его не проходили? Почему магний не образует ион Mg³⁺?</small></p>':
+ '<p>'+(ok?'Все семь улик собраны.':'Сервер откроется, когда будут решены все семь эпизодов.')+'</p><button class="btn" id="unl"'+(ok?'':' disabled')+'>Разблокировать сервер Бюро</button>')+'</div>'}
+function render(){var m=$("main");m.innerHTML=cur==0?legend():cur<8?episode(cur-1):terminal();
+ if(cur>0&&cur<8){var i=cur-1,v=sv[i]||{};$("nb").value=notes[i]||"";$("nb").oninput=function(){notes[i]=this.value};
+  if(v.a!=null){$("f1").value=v.a;if($("f2"))$("f2").value=v.b;$("f1").className="ok";if($("f2"))$("f2").className="ok";fin2(i)}
+  document.querySelectorAll("[data-p]").forEach(function(b){b.onclick=function(){var a=$("nb"),s=a.selectionStart,t=this.dataset.p;a.value=a.value.slice(0,s)+t+a.value.slice(a.selectionEnd);a.selectionStart=a.selectionEnd=s+t.length;a.focus();notes[i]=a.value}});
+  if($("chk"))$("chk").onclick=function(){check(i)};
+  m.querySelectorAll(".fld input").forEach(function(x){x.onkeydown=function(e){if(e.key==="Enter"&&$("chk"))check(i)}})}
+ if($("go"))$("go").onclick=function(){started=true;tid=setInterval(tick,1000);cur=1;render()};
+ if($("unl"))$("unl").onclick=function(){fin=true;clearInterval(tid);render()};
+ paint()}
+function fin2(i){var r=$("res");r.innerHTML='<div class="msg ok">Замок открыт! Число записано в код сервера.</div>'+(i<6?'<button class="btn" id="nx">К следующей улике</button>':'<button class="btn" id="nx">В терминал сервера</button>');$("nx").onclick=function(){cur++;render()}}
+function check(i){var e=E[i],a=num($("f1").value),b=$("f2")?$("f2").value:"",t=e.tol||.005,
+ g1=!isNaN(a)&&e.num.some(function(n){return Math.abs(a-n)<=n*t}),
+ g2=!e.x||(e.x.n!=null?Math.abs(num(b)-e.x.n)<=e.x.n*.02:e.x.a.indexOf(nf(b))>-1);
+ $("f1").className=g1?"ok":"bad";if(e.x)$("f2").className=g2?"ok":"bad";
+ if(g1&&g2){solved[i]=a;sv[i]={a:$("f1").value,b:b};$("f1").disabled=true;if($("f2"))$("f2").disabled=true;$("chk").remove();
+  document.querySelector(".ev").insertAdjacentHTML("beforeend",'<div class="lnk">'+e.link+'</div>');fin2(i);paint()}
+ else{alarms++;$("res").innerHTML='<div class="msg bad shake">ТРЕВОГА! Ответ не сходится с уликами. Перепроверь расчёт.</div>'}}
+function op(){var k=0;while(k<7&&solved[k]!=null)k++;return k+1}
+function tick(){LEFT--;paint();if(LEFT==0)ov("<h2>Время вышло</h2><p>Газ уже идёт по вентиляции, но код ещё можно ввести. Быстрее!</p>")}
+function paint(){$("tm").textContent=fmt(LEFT);$("tmw").className="tm"+(LEFT<300?" low":"");
+ $("code").innerHTML=E.map(function(e,i){var d=solved[i]!=null;return'<button type="button" class="sl'+(d?' f':'')+(cur==i+1?' c':'')+'" data-go="'+(i+1)+'"'+(i+1>op()?' disabled':'')+' aria-label="Перейти к эпизоду '+(i+1)+'"><i>'+(i+1)+'</i>'+(d?solved[i]:'?')+'</button>'}).join("");
+ document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){if(started&&+this.dataset.go<=op()){cur=+this.dataset.go;render()}}});
+ $("prev").disabled=cur==0;$("next").disabled=!started||cur==8||(cur>0&&solved[cur-1]==null)}
+$("prev").onclick=function(){cur--;render()};$("next").onclick=function(){cur++;render()};
+$("bref").onclick=function(){ov('<h2>Справочник детектива</h2><table><tr><td>H</td><td>1</td><td>Na</td><td>23</td></tr><tr><td>C</td><td>12</td><td>Mg</td><td>см. эпизод 1</td></tr><tr><td>N</td><td>14</td><td>S</td><td>32</td></tr><tr><td>O</td><td>16</td><td>Cl</td><td>35,5</td></tr></table><p>Число Авогадро N<sub>A</sub> = 6,02·10<sup>23</sup> моль<sup>−1</sup></p>')};
+$("bt").onclick=function(){ov('<h2>Режим учителя</h2><p><label>Пароль <input id="pw" type="password" style="font-size:18px;padding:4px"></label> <button class="btn" id="pk" style="margin:0">Открыть</button></p><div id="kb"></div>');
+ var f=function(){if($("pw").value==="krios")$("kb").innerHTML="<table>"+E.map(function(e,i){return"<tr><td><b>"+(i+1)+"</b></td><td>"+e.key+"</td></tr>"}).join("")+"</table>";else $("kb").textContent="Неверный пароль."};
+ $("pk").onclick=f;$("pw").onkeydown=function(e){if(e.key==="Enter")f()}};
+render();
+</script>
+</body>
+</html>
